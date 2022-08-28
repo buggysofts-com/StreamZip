@@ -1,6 +1,5 @@
 # StreamZip [![](https://jitpack.io/v/buggysofts-com/StreamZip.svg)](https://jitpack.io/#buggysofts-com/StreamZip)
-
-A zip explorer library with similar functionality of standard java <b>ZipFile</b> class, but unlike <b>ZipFile</b>
+A zip explorer library with functionalities similar to the standard java <b>ZipFile</b> class, but unlike <b>ZipFile</b>
 class, it uses an input stream as its data source instead of a <b>File</b> object.
 
 <br />
