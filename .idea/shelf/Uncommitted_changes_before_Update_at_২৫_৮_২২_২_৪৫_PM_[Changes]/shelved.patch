@@ -1,0 +1,68 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"7bb03b44-1900-4d5c-802e-9416208aaeed\" name=\"Changes\" comment=\"\">\n      <change afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/dbnavigator.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/encodings.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/uiDesigner.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/ArchiveExtraDataRecord.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/CentralDirectory.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/CentralDirectoryFileHeader.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/CompressionMethod.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/DataDescriptor.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/DateTimeUtils.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/EndOfCentralDirectory.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/FileHeader.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/HeaderFlags.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/Main.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/MixedUtils.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/StreamUtils.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/StreamZip.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/ZipConstants.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/ZipUtils.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2Dn7yhV9WqTFCNxmw30uqU85LAl\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\n      <module name=\"StreamZip\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Main\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"7bb03b44-1900-4d5c-802e-9416208aaeed\" name=\"Changes\" comment=\"\" />\n      <created>1661323252105</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1661323252105</updated>\n    </task>\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision baf9612149e6b462bba7d9e7e96bbdc21dd4118e)
++++ b/.idea/workspace.xml	(date 1661416550828)
+@@ -4,30 +4,8 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="7bb03b44-1900-4d5c-802e-9416208aaeed" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/ArchiveExtraDataRecord.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/CentralDirectory.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/CentralDirectoryFileHeader.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/CompressionMethod.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/DataDescriptor.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/DateTimeUtils.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/EndOfCentralDirectory.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/FileHeader.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/HeaderFlags.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/MixedUtils.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/StreamUtils.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/StreamZip.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/ZipConstants.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/ZipUtils.java" afterDir="false" />
++    <list default="true" id="7bb03b44-1900-4d5c-802e-9416208aaeed" name="Changes" comment="Initial commit.">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -88,6 +66,14 @@
+       <option name="presentableId" value="Default" />
+       <updated>1661323252105</updated>
+     </task>
++    <task id="LOCAL-00001" summary="Initial commit.">
++      <created>1661416065458</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1661416065458</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -101,4 +87,8 @@
+       </map>
+     </option>
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Initial commit." />
++    <option name="LAST_COMMIT_MESSAGE" value="Initial commit." />
++  </component>
+ </project>
+\ No newline at end of file
