@@ -26,7 +26,7 @@ Finally, add this dependency.
 <dependency>
     <groupId>com.github.buggysofts-com</groupId>
     <artifactId>StreamZip</artifactId>
-    <version>v1.0.5</version>
+    <version>v1.0.0</version>
 </dependency>
 ```
 
@@ -70,7 +70,7 @@ Finally, add this dependency to your app/module level build.gradle file
 
 dependencies {
     ...
-    implementation 'com.github.buggysofts-com:StreamZip:v1.0.5'
+    implementation 'com.github.buggysofts-com:StreamZip:v1.0.0'
 }
 ```
 
