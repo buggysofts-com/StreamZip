@@ -9,8 +9,6 @@ import java.util.zip.InflaterInputStream;
 
 class Main {
     public static void main(String[] args) throws Exception {
-        // test
-        // test
         long s = System.currentTimeMillis();
         StreamZip zip = new StreamZip(
                 new FileInputStream(

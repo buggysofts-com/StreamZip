@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bb03b44-1900-4d5c-802e-9416208aaeed" name="Changes" comment="Bug fixes related to main stream, and others.&#10;. Fixed the after-effect on closing the stream obtained from StreamZip.getInputStream()&#10;- Enabled auto-close for resources (currently only the main stream)" />
+    <list default="true" id="7bb03b44-1900-4d5c-802e-9416208aaeed" name="Changes" comment="Bug fixes related to main stream, and others.&#10;. Fixed the after-effect on closing the stream obtained from StreamZip.getInputStream()&#10;- Enabled auto-close for resources (currently only the main stream)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,13 +74,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1661323252105</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Initial commit.">
-      <created>1661506394514</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1661506394514</updated>
     </task>
     <task id="LOCAL-00014" summary="Completed basic zip32 support.">
       <created>1661608568818</created>
@@ -415,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665860005030</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Bug fixes related to main stream, and others.&#10;. Fixed the after-effect on closing the stream obtained from StreamZip.getInputStream()&#10;- Enabled auto-close for resources (currently only the main stream)">
+      <created>1665860773787</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1665860773787</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
