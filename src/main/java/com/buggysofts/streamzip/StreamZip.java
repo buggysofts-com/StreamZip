@@ -41,7 +41,7 @@ public class StreamZip implements Closeable {
         // extract all metadata
         extractMetadata();
 
-        // register cleaner
+        // register resource cleaner
         Cleaner.create().register(
                 this,
                 new CleanableAction(sourceStream)
