@@ -296,7 +296,7 @@ public class StreamZip implements Closeable {
 
     @Override
     protected void finalize() throws Throwable {
-        super.finalize();
+        close();
     }
 
     /**
