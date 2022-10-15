@@ -6,7 +6,6 @@ import java.io.Closeable;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.ref.Cleaner;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.channels.FileChannel;
@@ -40,12 +39,6 @@ public class StreamZip implements Closeable {
 
         // extract all metadata
         extractMetadata();
-
-        // register resource cleaner
-        Cleaner.create().register(
-                this,
-                new CleanableAction(sourceStream)
-        );
     }
 
     private void initializeData() {
@@ -299,6 +292,11 @@ public class StreamZip implements Closeable {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
     }
 
     /**

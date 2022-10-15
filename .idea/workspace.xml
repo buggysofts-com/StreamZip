@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7bb03b44-1900-4d5c-802e-9416208aaeed" name="Changes" comment="Bug fixes related to main stream, and others.&#10;. Fixed the after-effect on closing the stream obtained from StreamZip.getInputStream()&#10;- Enabled auto-close for resources (currently only the main stream)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jitpack.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jitpack.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/StreamZip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/StreamZip.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +43,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "/home/ragib/IdeaProjects/StreamZip",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
@@ -73,13 +76,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1661323252105</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Initial commit.">
-      <created>1661417700790</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1661417700790</updated>
     </task>
     <task id="LOCAL-00010" summary="Initial commit.">
       <created>1661417719908</created>
@@ -417,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665855746415</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Bug fixes related to main stream, and others.&#10;. Fixed the after-effect on closing the stream obtained from StreamZip.getInputStream()&#10;- Enabled auto-close for resources (currently only the main stream)">
+      <created>1665855808109</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1665855808109</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
