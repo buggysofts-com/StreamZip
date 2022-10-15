@@ -187,25 +187,10 @@ public class StreamZip {
     }
 
     /**
-     * Get number of available entries in this zip.
-     */
-    public int size() {
-        return centralDirFileHeaderMap.size();
-    }
-
-    /**
-     * Get global comment of the zip file.
-     */
-    @NonNull
-    public String getComment() {
-        return ecdRecord.getZipFileComment();
-    }
-
-    /**
-     * Close the zip file. After this you won't be able to call {@code getInputStream()}.
-     */
-    public void close() throws IOException {
-        sourceStream.close();
+     * Get a particular entry.
+     * */
+    public ZipEntry getEntry(@NonNull String name){
+        return new ZipEntry(centralDirFileHeaderMap.get(name));
     }
 
     /**
@@ -274,6 +259,28 @@ public class StreamZip {
         } else {
             throw new Exception("The requested zip entry was not found.");
         }
+    }
+
+    /**
+     * Get number of available entries in this zip.
+     */
+    public int size() {
+        return centralDirFileHeaderMap.size();
+    }
+
+    /**
+     * Get global comment of the zip file.
+     */
+    @NonNull
+    public String getComment() {
+        return ecdRecord.getZipFileComment();
+    }
+
+    /**
+     * Close the zip file. After this you won't be able to call {@code getInputStream()}.
+     */
+    public void close() throws IOException {
+        sourceStream.close();
     }
 
     /**
