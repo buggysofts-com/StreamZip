@@ -25,7 +25,7 @@ Finally, add this dependency.
 <dependency>
     <groupId>com.github.buggysofts-com</groupId>
     <artifactId>StreamZip</artifactId>
-    <version>v1.0.0</version>
+    <version>v1.0.1</version>
 </dependency>
 ```
 
@@ -69,7 +69,7 @@ Finally, add this dependency to your app/module level build.gradle file
 
 dependencies {
     ...
-    implementation 'com.github.buggysofts-com:StreamZip:v1.0.0'
+    implementation 'com.github.buggysofts-com:StreamZip:v1.0.1'
 }
 ```
 
@@ -94,13 +94,12 @@ StreamZip zip = new StreamZip(
 Then you can use different methods that are similar to the standard java ZipFile class. For example here are the
 publicly available methods.
 
+- ```getEntry(String name)``` Returns the entry mapped with the specified name, or null if there is no entry mapped with that name.
+- ```entries()``` Returns all the available entries as a list of <b>ZipEntry</b>.
+- ```getInputStream(...)``` Opens(and returns) a bounded input stream currently positioning at the start of the requested entry's data block.
 - ```size()``` Returns the total number of available entries.
 - ```getComment()``` Returns the principal comment of the zip file.
-- ```entries()``` Returns all the available entries as a list of <b>ZipEntry</b>.
-- ```getInputStream(...)``` Opens(and returns) a bounded input stream currently positioning at the start of the
-  requested entry's data block.
-- ```close()``` Closes the zip file, and any subsequent call to <b>getInputStream(...)</b> will throw an exception.
-  However, other methods of the class that are saved in memory will still be available after call to <b>close()</b>.
+- ```close()``` Closes the zip file, and any subsequent call to <b>getInputStream(...)</b> will throw an exception. However, other methods of the class that are saved in memory will still be available after call to <b>close()</b>.
 
 **Please Note**
 
