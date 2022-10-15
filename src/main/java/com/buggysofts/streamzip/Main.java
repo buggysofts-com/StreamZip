@@ -12,9 +12,7 @@ class Main {
         long s = System.currentTimeMillis();
         StreamZip zip = new StreamZip(
                 new FileInputStream(
-                        new File(
-                                "/home/ragib/Desktop/addr.zip"
-                        )
+                        "/home/ragib/Desktop/addr.zip"
                 )
         );
         List<ZipEntry> entries = zip.entries();
