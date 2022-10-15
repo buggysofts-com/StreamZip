@@ -28,16 +28,16 @@ class Zip64EndOfCentralDirRecord extends ChunkProperties {
         // according to the fixed length field sizes
         int fixedLengthDataLength = (4) + (8) + (2 * 2) + (2 * 4) + (8 * 4);
         byte[] fixedDataChunk = StreamUtils.readFully(
-            in,
-            fixedLengthDataLength,
-            false
+                in,
+                fixedLengthDataLength,
+                false
         );
         if (fixedDataChunk.length < fixedLengthDataLength) {
             throw new Exception("Malformed Zip64EOCDR (Zip64-End-of-Central-Directory-Record");
         } else {
             ByteBuffer buffer =
-                ByteBuffer.wrap(fixedDataChunk)
-                    .order(ByteOrder.LITTLE_ENDIAN);
+                    ByteBuffer.wrap(fixedDataChunk)
+                            .order(ByteOrder.LITTLE_ENDIAN);
 
             this.signature = buffer.getInt();
             this.sizeofZip64ECDR = buffer.getLong();

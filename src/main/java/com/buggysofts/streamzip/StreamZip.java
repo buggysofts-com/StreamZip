@@ -2,9 +2,11 @@ package com.buggysofts.streamzip;
 
 import lombok.NonNull;
 
+import java.io.Closeable;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.ref.Cleaner;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.channels.FileChannel;
@@ -16,9 +18,8 @@ import java.util.function.BiConsumer;
 import java.util.zip.Inflater;
 import java.util.zip.InflaterInputStream;
 
-public class StreamZip {
+public class StreamZip implements Closeable {
     private final FileInputStream sourceStream;
-
 
     private EndOfCentralDirRecord ecdRecord;
     private Zip64EndOfCentralDirRecord zip64EcdRecord;
@@ -39,6 +40,12 @@ public class StreamZip {
 
         // extract all metadata
         extractMetadata();
+
+        // register cleaner
+        Cleaner.create().register(
+                this,
+                new CleanableAction(sourceStream)
+        );
     }
 
     private void initializeData() {
@@ -53,74 +60,74 @@ public class StreamZip {
         // search from end of the file for ECD(End of Central Directory) record signature.
         // As minimum ECDR size is 22 bytes, we can narrow our search by starting it from (file-size) - 22
         long ecdRecordPosition = getLastDataPosition(
-            channel.size() - 22,
-            22 + (1 << 16),
-            ZipConstants.SIG_END_OF_CENTRAL_DIR_RECORD
+                channel.size() - 22,
+                22 + (1 << 16),
+                ZipConstants.SIG_END_OF_CENTRAL_DIR_RECORD
         );
         if (ecdRecordPosition >= 0) {
             try {
                 ecdRecord =
-                    new EndOfCentralDirRecord(
-                        sourceStream,
-                        ecdRecordPosition
-                    );
+                        new EndOfCentralDirRecord(
+                                sourceStream,
+                                ecdRecordPosition
+                        );
             } catch (Exception e) {
                 throw new Exception(
-                    String.format(
-                        "%s - %s",
-                        "Invalid zip file",
-                        "Make sure you are working with a valid zip file."
-                    )
+                        String.format(
+                                "%s - %s",
+                                "Invalid zip file",
+                                "Make sure you are working with a valid zip file."
+                        )
                 );
             }
 
             if (ecdRecord.getLocalCentralDirEntryCount() !=
-                ecdRecord.getGlobalCentralDirEntryCount()) {
+                    ecdRecord.getGlobalCentralDirEntryCount()) {
                 throw new Exception("Multi-Disk zip file is not yet supported.");
             } else {
                 long zip64ecdLocatorPosition = getLastDataPosition(
-                    ecdRecord.getOffset() - 1,
-                    20,
-                    ZipConstants.SIG_ZIP64_END_OF_CENTRAL_DIR_LOCATOR
+                        ecdRecord.getOffset() - 1,
+                        20,
+                        ZipConstants.SIG_ZIP64_END_OF_CENTRAL_DIR_LOCATOR
                 );
                 if (zip64ecdLocatorPosition >= 0) {
                     try {
                         zip64EcdLocator =
-                            new Zip64EndOfCentralDirLocator(
-                                sourceStream,
-                                zip64ecdLocatorPosition
-                            );
+                                new Zip64EndOfCentralDirLocator(
+                                        sourceStream,
+                                        zip64ecdLocatorPosition
+                                );
 
                         zip64EcdRecord =
-                            new Zip64EndOfCentralDirRecord(
-                                sourceStream,
-                                zip64EcdLocator.getRelativeZip64ECDROffset()
-                            );
+                                new Zip64EndOfCentralDirRecord(
+                                        sourceStream,
+                                        zip64EcdLocator.getRelativeZip64ECDROffset()
+                                );
                     } catch (Exception e) {
                         throw new Exception(
-                            String.format(
-                                "%s - %s",
-                                "Invalid zip file",
-                                "Make sure you are working with a valid zip file."
-                            )
+                                String.format(
+                                        "%s - %s",
+                                        "Invalid zip file",
+                                        "Make sure you are working with a valid zip file."
+                                )
                         );
                     }
 
                     if (zip64EcdRecord.getLocalCentralDirEntryCount() !=
-                        zip64EcdRecord.getGlobalCentralDirEntryCount()) {
+                            zip64EcdRecord.getGlobalCentralDirEntryCount()) {
                         throw new Exception("Multi-Disk zip file is not yet supported.");
                     } else {
                         // ZIP64-END-OF-CENTRAL-DIRECTORY-LOCATOR is available
                         long currentOffset = zip64EcdRecord.getCentralDirStartOffset();
                         for (int i = 0; i < zip64EcdRecord.getLocalCentralDirEntryCount(); ++i) {
                             CentralDirFileHeader currentDFH = new CentralDirFileHeader(
-                                sourceStream,
-                                currentOffset,
-                                true
+                                    sourceStream,
+                                    currentOffset,
+                                    true
                             );
                             centralDirFileHeaderMap.put(
-                                currentDFH.getFileName(),
-                                currentDFH
+                                    currentDFH.getFileName(),
+                                    currentDFH
                             );
                             currentOffset += currentDFH.getSize();
                             // System.out.println(currentDFH.toString());
@@ -128,13 +135,13 @@ public class StreamZip {
                         for (Map.Entry<String, CentralDirFileHeader> entry : centralDirFileHeaderMap.entrySet()) {
                             CentralDirFileHeader currentCFH = entry.getValue();
                             LocalFileHeader currentFH = new LocalFileHeader(
-                                sourceStream,
-                                currentCFH.getLocalFileHeaderOffset(),
-                                true
+                                    sourceStream,
+                                    currentCFH.getLocalFileHeaderOffset(),
+                                    true
                             );
                             localFileHeaderMap.put(
-                                currentFH.getFileName(),
-                                currentFH
+                                    currentFH.getFileName(),
+                                    currentFH
                             );
                             currentOffset += currentFH.getSize();
                             // System.out.println(currentFH.toString());
@@ -146,13 +153,13 @@ public class StreamZip {
                     long currentOffset = ecdRecord.getCentralDirStartOffset();
                     for (int i = 0; i < ecdRecord.getLocalCentralDirEntryCount(); ++i) {
                         CentralDirFileHeader currentDFH = new CentralDirFileHeader(
-                            sourceStream,
-                            currentOffset,
-                            false
+                                sourceStream,
+                                currentOffset,
+                                false
                         );
                         centralDirFileHeaderMap.put(
-                            currentDFH.getFileName(),
-                            currentDFH
+                                currentDFH.getFileName(),
+                                currentDFH
                         );
                         currentOffset += currentDFH.getSize();
                         // System.out.println(currentDFH.toString());
@@ -161,13 +168,13 @@ public class StreamZip {
                     for (Map.Entry<String, CentralDirFileHeader> entry : centralDirFileHeaderMap.entrySet()) {
                         CentralDirFileHeader currentCFH = entry.getValue();
                         LocalFileHeader currentFH = new LocalFileHeader(
-                            sourceStream,
-                            currentCFH.getLocalFileHeaderOffset(),
-                            false
+                                sourceStream,
+                                currentCFH.getLocalFileHeaderOffset(),
+                                false
                         );
                         localFileHeaderMap.put(
-                            currentFH.getFileName(),
-                            currentFH
+                                currentFH.getFileName(),
+                                currentFH
                         );
                         currentOffset += currentFH.getSize();
                         // System.out.println(currentFH.toString());
@@ -176,20 +183,20 @@ public class StreamZip {
             }
         } else {
             throw new Exception(
-                String.format(
-                    "%s - %s - %s",
-                    "Invalid zip file",
-                    "Could not find EOCDR(End of Central Directory Record)",
-                    "Make sure you are working on a valid zip file."
-                )
+                    String.format(
+                            "%s - %s - %s",
+                            "Invalid zip file",
+                            "Could not find EOCDR(End of Central Directory Record)",
+                            "Make sure you are working on a valid zip file."
+                    )
             );
         }
     }
 
     /**
      * Get a particular entry.
-     * */
-    public ZipEntry getEntry(@NonNull String name){
+     */
+    public ZipEntry getEntry(@NonNull String name) {
         return new ZipEntry(centralDirFileHeaderMap.get(name));
     }
 
@@ -199,12 +206,12 @@ public class StreamZip {
     public List<ZipEntry> entries() {
         List<ZipEntry> zipEntryList = new ArrayList<>(0);
         centralDirFileHeaderMap.forEach(
-            new BiConsumer<String, CentralDirFileHeader>() {
-                @Override
-                public void accept(String s, CentralDirFileHeader centralDirFileHeader) {
-                    zipEntryList.add(new ZipEntry(centralDirFileHeader));
+                new BiConsumer<String, CentralDirFileHeader>() {
+                    @Override
+                    public void accept(String s, CentralDirFileHeader centralDirFileHeader) {
+                        zipEntryList.add(new ZipEntry(centralDirFileHeader));
+                    }
                 }
-            }
         );
         return zipEntryList;
     }
@@ -236,24 +243,28 @@ public class StreamZip {
         if (localFileHeader != null && centralDirFileHeader != null) {
             // position the stream at the start of the entry data
             sourceStream.getChannel().position(
-                localFileHeader.getOffset() + localFileHeader.getSize()
+                    localFileHeader.getOffset() + localFileHeader.getSize()
             );
 
             if (centralDirFileHeader.getCompression() == 0) {
                 // not deflated, just return the main stream with appropriate bound
-                return new BoundedInputStream(
-                    sourceStream,
-                    centralDirFileHeader.getCompressedSize()
+                return new NonClosableInputStream(
+                        new BoundedInputStream(
+                                sourceStream,
+                                centralDirFileHeader.getCompressedSize()
+                        )
                 );
             } else {
                 // return a bounded input stream wrapped by an InflaterInputStream
                 // to decompress the data while the caller is reading data.
-                return new InflaterInputStream(
-                    new BoundedInputStream(
-                        sourceStream,
-                        centralDirFileHeader.getCompressedSize()
-                    ),
-                    new Inflater(true)
+                return new NonClosableInputStream(
+                        new InflaterInputStream(
+                                new BoundedInputStream(
+                                        sourceStream,
+                                        centralDirFileHeader.getCompressedSize()
+                                ),
+                                new Inflater(true)
+                        )
                 );
             }
         } else {
@@ -279,8 +290,15 @@ public class StreamZip {
     /**
      * Close the zip file. After this you won't be able to call {@code getInputStream()}.
      */
+    @Override
     public void close() throws IOException {
-        sourceStream.close();
+        if (sourceStream != null) {
+            try {
+                sourceStream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -328,9 +346,9 @@ public class StreamZip {
             } else {
                 sourceStream.getChannel().position(currentPosition);
                 byte[] signatureData = StreamUtils.readFully(
-                    sourceStream,
-                    4,
-                    false
+                        sourceStream,
+                        4,
+                        false
                 );
 
                 if (ByteBuffer.wrap(signatureData).order(ByteOrder.LITTLE_ENDIAN).getInt() == data) {

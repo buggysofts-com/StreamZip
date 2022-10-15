@@ -40,17 +40,17 @@ class CentralDirFileHeader extends ChunkProperties {
         int fixedLengthDataLength = (4) + (2 * 6) + (4 * 3) + (5 * 2) + (4 * 2);
 
         byte[] fixedLengthData = StreamUtils.readFully(
-            in,
-            fixedLengthDataLength,
-            false
+                in,
+                fixedLengthDataLength,
+                false
         );
         if (fixedLengthData.length != fixedLengthDataLength) {
             // returned data length is less than usual - not a zip file/corrupted one?
             throw new Exception("Malformed central directory file header");
         } else {
             ByteBuffer fixedLengthDataBuffer =
-                ByteBuffer.wrap(fixedLengthData)
-                    .order(ByteOrder.LITTLE_ENDIAN);
+                    ByteBuffer.wrap(fixedLengthData)
+                            .order(ByteOrder.LITTLE_ENDIAN);
 
             // for a valid zip file, signature will always be 0x04034b50 = 67324752
             this.signature = fixedLengthDataBuffer.getInt();
@@ -82,17 +82,17 @@ class CentralDirFileHeader extends ChunkProperties {
 
             int variableLengthDataLength = fileNameLength + extraFieldLength + fileCommentLength;
             byte[] variableLengthData = StreamUtils.readFully(
-                in,
-                variableLengthDataLength,
-                false
+                    in,
+                    variableLengthDataLength,
+                    false
             );
             if (variableLengthData.length != variableLengthDataLength) {
                 // returned data length is less than usual - not a zip file/corrupted one?
                 throw new Exception("Malformed central directory file header");
             } else {
                 ByteBuffer variableLengthDataBuffer =
-                    ByteBuffer.wrap(variableLengthData)
-                        .order(ByteOrder.LITTLE_ENDIAN);
+                        ByteBuffer.wrap(variableLengthData)
+                                .order(ByteOrder.LITTLE_ENDIAN);
 
                 try {
                     byte[] fileNameData = new byte[fileNameLength];
@@ -108,7 +108,7 @@ class CentralDirFileHeader extends ChunkProperties {
 
                     // block for correcting size and offset values
                     if (compressedSize <= -1 || uncompressedSize <= -1 ||
-                        localFileHeaderOffset <= -1 || diskIndexStart <= -1) {
+                            localFileHeaderOffset <= -1 || diskIndexStart <= -1) {
                         // create a Zip64ExtInfoParser - we may have a zip 64 entry
                         Zip64ExtInfo parser = null;
                         try {

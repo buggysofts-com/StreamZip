@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bb03b44-1900-4d5c-802e-9416208aaeed" name="Changes" comment="Added getEntry(String)" />
+    <list default="true" id="7bb03b44-1900-4d5c-802e-9416208aaeed" name="Changes" comment="Added getEntry(String)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/CleanableAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/NonClosableInputStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jitpack.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jitpack.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/ArchiveExtraDataRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/ArchiveExtraDataRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/CentralDirFileHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/CentralDirFileHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/DateTimeUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/DateTimeUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/EndOfCentralDirRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/EndOfCentralDirRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/LocalFileHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/LocalFileHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/StreamZip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/StreamZip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/Zip64EndOfCentralDirLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/Zip64EndOfCentralDirLocator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/Zip64EndOfCentralDirRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/Zip64EndOfCentralDirRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/Zip64ExtInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/Zip64ExtInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/ZipEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/ZipEntry.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,13 +51,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ragib/IdeaProjects/StreamZip&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/ragib/IdeaProjects/StreamZip",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -67,13 +89,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1661323252105</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Initial commit.">
-      <created>1661417683472</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1661417683472</updated>
     </task>
     <task id="LOCAL-00007" summary="Initial commit.">
       <created>1661417687061</created>
@@ -411,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665817790681</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Added getEntry(String)">
+      <created>1665817884863</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1665817884863</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

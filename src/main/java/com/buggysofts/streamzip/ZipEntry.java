@@ -27,8 +27,8 @@ public class ZipEntry {
         this.uncompressedSize = header.getUncompressedSize();
 
         this.lastModified = DateTimeUtils.convertMsDosDateTime(
-            header.getModTime(),
-            header.getModDate()
+                header.getModTime(),
+                header.getModDate()
         );
 
         this.fileName = header.getFileName();

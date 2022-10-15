@@ -20,24 +20,24 @@ class ArchiveExtraDataRecord extends ChunkProperties {
 
         int fixedLengthDataLength = 2 * 4;
         byte[] fixedLengthData = StreamUtils.readFully(
-            in,
-            fixedLengthDataLength,
-            false
+                in,
+                fixedLengthDataLength,
+                false
         );
         if (fixedLengthData.length < fixedLengthDataLength) {
             throw new Exception("Malformed decryption header");
         } else {
             ByteBuffer buffer =
-                ByteBuffer.wrap(fixedLengthData)
-                    .order(ByteOrder.LITTLE_ENDIAN);
+                    ByteBuffer.wrap(fixedLengthData)
+                            .order(ByteOrder.LITTLE_ENDIAN);
 
             this.signature = buffer.getInt();
             this.extraFieldLength = buffer.getInt();
 
             this.extraFieldData = StreamUtils.readFully(
-                in,
-                extraFieldLength,
-                false
+                    in,
+                    extraFieldLength,
+                    false
             );
 
             if (extraFieldData.length != extraFieldLength) {

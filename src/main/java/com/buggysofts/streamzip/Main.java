@@ -9,13 +9,15 @@ import java.util.zip.InflaterInputStream;
 
 class Main {
     public static void main(String[] args) throws Exception {
+        // test
+        // test
         long s = System.currentTimeMillis();
         StreamZip zip = new StreamZip(
-            new FileInputStream(
-                new File(
-                    "/home/ragib/Desktop/zip/x/apk/b.apk"
+                new FileInputStream(
+                        new File(
+                                "/home/ragib/Desktop/addr.zip"
+                        )
                 )
-            )
         );
         List<ZipEntry> entries = zip.entries();
         long e = System.currentTimeMillis();
@@ -23,17 +25,17 @@ class Main {
             ZipEntry zipEntry = entries.get(i);
             if (!zipEntry.isDirectory()) {
                 System.out.printf(
-                    "\nFILE: %s --- %d --- %d - %s",
-                    zipEntry.getFileName(),
-                    zipEntry.getCompressedSize(),
-                    zipEntry.getUncompressedSize(),
-                    new String(StreamUtils.readFully(zip.getInputStream(zipEntry), Integer.MAX_VALUE, false))
+                        "\nFILE: %s --- %d --- %d - %s",
+                        zipEntry.getFileName(),
+                        zipEntry.getCompressedSize(),
+                        zipEntry.getUncompressedSize(),
+                        new String(StreamUtils.readFully(zip.getInputStream(zipEntry), Integer.MAX_VALUE, false))
                 );
             } else {
                 // do anything
                 System.out.printf(
-                    "\nDIR: %s",
-                    zipEntry.getFileName()
+                        "\nDIR: %s",
+                        zipEntry.getFileName()
                 );
             }
         }
@@ -42,8 +44,8 @@ class Main {
 
     private static String getDeflatedString(byte[] data) throws Exception {
         InflaterInputStream inflaterInputStream = new InflaterInputStream(
-            new ByteArrayInputStream(data),
-            new Inflater(true)
+                new ByteArrayInputStream(data),
+                new Inflater(true)
         );
         byte[] bytes = StreamUtils.readFully(inflaterInputStream, Integer.MAX_VALUE, false);
         return new String(bytes);

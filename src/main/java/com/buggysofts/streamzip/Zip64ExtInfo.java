@@ -30,8 +30,8 @@ class Zip64ExtInfo extends ExtDataCommons {
         // the actual starting 2 bytes(i.e. the header) of the zip64 info block.
 
         ByteBuffer scanBuffer =
-            ByteBuffer.wrap(totalExtraData)
-                .order(ByteOrder.LITTLE_ENDIAN);
+                ByteBuffer.wrap(totalExtraData)
+                        .order(ByteOrder.LITTLE_ENDIAN);
 
         while (scanBuffer.hasRemaining()) {
             int id = Short.toUnsignedInt(scanBuffer.getShort());
@@ -44,8 +44,8 @@ class Zip64ExtInfo extends ExtDataCommons {
                 if (scanBuffer.remaining() >= size) {
                     scanBuffer.get(trimmedZip64InfoBufferData);
                     trimmedZip64InfoBuffer =
-                        ByteBuffer.wrap(trimmedZip64InfoBufferData)
-                            .order(ByteOrder.LITTLE_ENDIAN);
+                            ByteBuffer.wrap(trimmedZip64InfoBufferData)
+                                    .order(ByteOrder.LITTLE_ENDIAN);
                 } else {
                     throw new Exception("Corrupted Zip64 Extended Information Extra Field (0x0001)");
                 }

@@ -11,12 +11,12 @@ public final class DateTimeUtils {
         int mo = ((date << 23) >>> 28);
         int day = date & ((1 << 5) - 1);
         return new Date(
-            yr - 1900,
-            mo - 1,
-            day,
-            hr - 1,
-            min - 1,
-            sec - 1
+                yr - 1900,
+                mo - 1,
+                day,
+                hr - 1,
+                min - 1,
+                sec - 1
         ).getTime();
     }
 }

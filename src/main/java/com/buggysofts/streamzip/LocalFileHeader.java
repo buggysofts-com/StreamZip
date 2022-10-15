@@ -31,17 +31,17 @@ class LocalFileHeader extends ChunkProperties {
         // according to the fixed length field sizes
         int fixedLengthDataLength = (4) + (2 * 5) + (4 * 3) + (2 * 2);
         byte[] fixedLengthData = StreamUtils.readFully(
-            in,
-            fixedLengthDataLength,
-            false
+                in,
+                fixedLengthDataLength,
+                false
         );
         if (fixedLengthData.length != fixedLengthDataLength) {
             // returned data length is less than usual - not a zip file/corrupted one?
             throw new Exception("Invalid local file header");
         } else {
             ByteBuffer fixedLengthDataBuffer =
-                ByteBuffer.wrap(fixedLengthData)
-                    .order(ByteOrder.LITTLE_ENDIAN);
+                    ByteBuffer.wrap(fixedLengthData)
+                            .order(ByteOrder.LITTLE_ENDIAN);
 
             // for a valid zip file, signature will always be 0x04034b50 = 67324752
             this.signature = fixedLengthDataBuffer.getInt();
@@ -65,17 +65,17 @@ class LocalFileHeader extends ChunkProperties {
 
             int variableLengthDataLength = fileNameLength + extraFieldLength;
             byte[] variableLengthData = StreamUtils.readFully(
-                in,
-                variableLengthDataLength,
-                false
+                    in,
+                    variableLengthDataLength,
+                    false
             );
             if (variableLengthData.length != variableLengthDataLength) {
                 // returned data length is less than usual - not a zip file/corrupted one?
                 throw new Exception("Malformed local file header");
             } else {
                 ByteBuffer variableLengthDataBuffer =
-                    ByteBuffer.wrap(variableLengthData)
-                        .order(ByteOrder.LITTLE_ENDIAN);
+                        ByteBuffer.wrap(variableLengthData)
+                                .order(ByteOrder.LITTLE_ENDIAN);
 
                 try {
                     byte[] fileNameData = new byte[fileNameLength];
@@ -91,8 +91,8 @@ class LocalFileHeader extends ChunkProperties {
 
                     if (compressedSize == -1 || uncompressedSize == -1) {
                         ByteBuffer extraDataBuffer =
-                            ByteBuffer.wrap(extraField)
-                                .order(ByteOrder.LITTLE_ENDIAN);
+                                ByteBuffer.wrap(extraField)
+                                        .order(ByteOrder.LITTLE_ENDIAN);
 
                         // read out block that is not required
                         extraDataBuffer.get(new byte[4]);

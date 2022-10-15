@@ -28,16 +28,16 @@ class EndOfCentralDirRecord extends ChunkProperties {
         // according to the fixed length field sizes
         int fixedLengthDataLength = (4) + (2 * 4) + (4 * 2) + (2);
         byte[] fixedDataChunk = StreamUtils.readFully(
-            in,
-            fixedLengthDataLength,
-            false
+                in,
+                fixedLengthDataLength,
+                false
         );
         if (fixedDataChunk.length < fixedLengthDataLength) {
             throw new Exception("Malformed EOCDR (End-of-Central-Directory-Record");
         } else {
             ByteBuffer buffer =
-                ByteBuffer.wrap(fixedDataChunk)
-                    .order(ByteOrder.LITTLE_ENDIAN);
+                    ByteBuffer.wrap(fixedDataChunk)
+                            .order(ByteOrder.LITTLE_ENDIAN);
 
             this.signature = buffer.getInt();
             this.diskIndex = buffer.getShort();
@@ -51,23 +51,23 @@ class EndOfCentralDirRecord extends ChunkProperties {
             // fix if a negative value is in there for overflow error
             if (this.centralDirStartOffset < -1) {
                 centralDirStartOffset = Integer.toUnsignedLong(
-                    ((int) centralDirStartOffset)
+                        ((int) centralDirStartOffset)
                 );
             }
 
             byte[] variableLengthData = StreamUtils.readFully(
-                in,
-                zipFileCommentLength,
-                false
+                    in,
+                    zipFileCommentLength,
+                    false
             );
             if (variableLengthData.length != zipFileCommentLength) {
                 throw new Exception("Malformed EOCDR (End-of-Central-Directory-Record");
             } else {
                 if (zipFileCommentLength > 0) {
                     this.zipFileComment = new String(
-                        variableLengthData,
-                        0,
-                        zipFileCommentLength
+                            variableLengthData,
+                            0,
+                            zipFileCommentLength
                     );
                 } else {
                     this.zipFileComment = null;

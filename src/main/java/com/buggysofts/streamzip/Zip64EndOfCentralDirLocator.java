@@ -22,16 +22,16 @@ class Zip64EndOfCentralDirLocator extends ChunkProperties {
         // according to the fixed length field sizes
         int fixedLengthDataLength = (2 * 4) + (8) + (4);
         byte[] fixedDataChunk = StreamUtils.readFully(
-            in,
-            fixedLengthDataLength,
-            false
+                in,
+                fixedLengthDataLength,
+                false
         );
         if (fixedDataChunk.length < fixedLengthDataLength) {
             throw new Exception("Malformed Zip64EOCDL (Zip64-End-of-Central-Directory-Locator");
         } else {
             ByteBuffer buffer =
-                ByteBuffer.wrap(fixedDataChunk)
-                    .order(ByteOrder.LITTLE_ENDIAN);
+                    ByteBuffer.wrap(fixedDataChunk)
+                            .order(ByteOrder.LITTLE_ENDIAN);
 
             this.signature = buffer.getInt();
             this.diskIndex = buffer.getInt();
