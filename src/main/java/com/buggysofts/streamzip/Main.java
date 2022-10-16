@@ -1,7 +1,6 @@
 package com.buggysofts.streamzip;
 
 import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.FileInputStream;
 import java.util.List;
 import java.util.zip.Inflater;
@@ -43,7 +42,11 @@ class Main {
                 new ByteArrayInputStream(data),
                 new Inflater(true)
         );
-        byte[] bytes = StreamUtils.readFully(inflaterInputStream, Integer.MAX_VALUE, false);
+        byte[] bytes = StreamUtils.readFully(
+                inflaterInputStream,
+                Integer.MAX_VALUE,
+                false
+        );
         return new String(bytes);
     }
 }
