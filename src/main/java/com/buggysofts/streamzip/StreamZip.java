@@ -1,6 +1,7 @@
 package com.buggysofts.streamzip;
 
 import lombok.NonNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.Closeable;
 import java.io.FileInputStream;
@@ -187,10 +188,15 @@ public class StreamZip implements Closeable {
     }
 
     /**
-     * Get a particular entry.
+     * Get a particular entry with the specified name, or null if not present.
      */
+    @Nullable
     public ZipEntry getEntry(@NonNull String name) {
-        return new ZipEntry(centralDirFileHeaderMap.get(name));
+        CentralDirFileHeader centralDirFileHeader = centralDirFileHeaderMap.get(name);
+        if(centralDirFileHeader != null){
+            return new ZipEntry(centralDirFileHeader);
+        }
+        return null;
     }
 
     /**
