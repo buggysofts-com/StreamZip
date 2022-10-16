@@ -193,7 +193,7 @@ public class StreamZip implements Closeable {
     @Nullable
     public ZipEntry getEntry(@NonNull String name) {
         CentralDirFileHeader centralDirFileHeader = centralDirFileHeaderMap.get(name);
-        if(centralDirFileHeader != null){
+        if (centralDirFileHeader != null) {
             return new ZipEntry(centralDirFileHeader);
         }
         return null;

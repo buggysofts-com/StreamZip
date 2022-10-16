@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bb03b44-1900-4d5c-802e-9416208aaeed" name="Changes" comment="Bug fixes related to main stream, and others.&#10;- Fixed the after-effect on closing the stream obtained from StreamZip.getInputStream().&#10;- Enabled auto-close for resources (currently only the main stream).">
+    <list default="true" id="7bb03b44-1900-4d5c-802e-9416208aaeed" name="Changes" comment="Fixed null pointer issue on StreamZip.getEntry()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/StreamZip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buggysofts/streamzip/StreamZip.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,13 +73,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1661323252105</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Completed basic zip32 support.">
-      <created>1661625793611</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1661625793611</updated>
     </task>
     <task id="LOCAL-00018" summary="Completed basic zip32 support.">
       <created>1661626551576</created>
@@ -419,7 +410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665887798007</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Fixed null pointer issue on StreamZip.getEntry()">
+      <created>1665892148600</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1665892148600</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -459,7 +457,8 @@
     <MESSAGE value="Bug fixes related to main stream, and others." />
     <MESSAGE value="Bug fixes related to main stream, and others.&#10;. Fixed the after-effect on closing the stream obtained from StreamZip.getInputStream()&#10;- Enabled auto-close for resources (currently only the main stream)" />
     <MESSAGE value="Bug fixes related to main stream, and others.&#10;- Fixed the after-effect on closing the stream obtained from StreamZip.getInputStream().&#10;- Enabled auto-close for resources (currently only the main stream)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes related to main stream, and others.&#10;- Fixed the after-effect on closing the stream obtained from StreamZip.getInputStream().&#10;- Enabled auto-close for resources (currently only the main stream)." />
+    <MESSAGE value="Fixed null pointer issue on StreamZip.getEntry()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed null pointer issue on StreamZip.getEntry()" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/StreamZip$Main.ic" NAME="Main Coverage Results" MODIFIED="1661445757299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
